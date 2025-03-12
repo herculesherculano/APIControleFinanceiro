@@ -4,6 +4,7 @@ import br.com.controlefinanceiro.enums.CategoriaDespesa;
 import br.com.controlefinanceiro.enums.CategoriaReceita;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,13 +17,13 @@ public class Despesa {
     @Column(nullable = false)
     private String descricao;
 
-    private double valor;
+    private BigDecimal valor;
 
     private LocalDateTime data;
 
     private CategoriaDespesa categoriaDespesa;
 
-    public Despesa(Long id, String descricao, double valor, LocalDateTime data, CategoriaDespesa categoriaDespesa) {
+    public Despesa(Long id, String descricao, BigDecimal valor, LocalDateTime data, CategoriaDespesa categoriaDespesa) {
         this.id = id;
         this.descricao = descricao;
         this.valor = valor;
@@ -46,11 +47,11 @@ public class Despesa {
         this.descricao = descricao;
     }
 
-    public double getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(double valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 
