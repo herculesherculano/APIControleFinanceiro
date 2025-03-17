@@ -2,9 +2,11 @@ package br.com.controlefinanceiro.model;
 
 import br.com.controlefinanceiro.enums.CategoriaDespesa;
 import br.com.controlefinanceiro.enums.CategoriaReceita;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,11 +21,14 @@ public class Despesa {
 
     private BigDecimal valor;
 
-    private LocalDateTime data;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    private LocalDate data;
 
+    @Column
+    @Enumerated(EnumType.STRING)
     private CategoriaDespesa categoriaDespesa;
 
-    public Despesa(Long id, String descricao, BigDecimal valor, LocalDateTime data, CategoriaDespesa categoriaDespesa) {
+    public Despesa(Long id, String descricao, BigDecimal valor, LocalDate data, CategoriaDespesa categoriaDespesa) {
         this.id = id;
         this.descricao = descricao;
         this.valor = valor;
@@ -55,11 +60,11 @@ public class Despesa {
         this.valor = valor;
     }
 
-    public LocalDateTime getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(LocalDateTime data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 

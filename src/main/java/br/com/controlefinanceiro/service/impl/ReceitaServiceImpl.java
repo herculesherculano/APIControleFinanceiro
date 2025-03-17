@@ -31,12 +31,12 @@ public class ReceitaServiceImpl implements ReceitaService {
 
     @Override
     public List<Receita> listarReceitasPorCategoria(CategoriaReceita categoriaReceita) {
-        return receitaRepository.buscarPorCategoria(categoriaReceita);
+        return receitaRepository.findByCategoriaReceita(categoriaReceita);
     }
 
     @Override
     public List<Receita> listarReceitasPorPeriodo(LocalDate dataInicial, LocalDate dataFinal) {
-        return receitaRepository.buscarPorPeriodo(dataInicial, dataFinal);
+       return receitaRepository.findByDataBetween(dataInicial, dataFinal);
     }
 
     @Override

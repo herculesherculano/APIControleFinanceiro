@@ -32,12 +32,12 @@ public class DespesaServiceImpl implements DespesaService {
 
     @Override
     public List<Despesa> listarDespesasPorCategoria(CategoriaDespesa categoriaDespesa) {
-        return despesaRepository.buscarDespesaPorCategoria(categoriaDespesa);
+        return despesaRepository.findByCategoriaDespesa(categoriaDespesa);
     }
 
     @Override
     public List<Despesa> listarDespesasPorPeriodo(LocalDate dataInicial, LocalDate dataFinal) {
-        return despesaRepository.buscarDespesaPorPeriodo(dataInicial, dataFinal);
+        return despesaRepository.findByDataBetween(dataInicial, dataFinal);
     }
 
     @Override
