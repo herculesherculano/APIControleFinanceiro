@@ -54,7 +54,7 @@ public class ReceitaController {
         return ResponseEntity.ok(listaReceitasPorPeriodo);
     }
 
-    @GetMapping("/totalreceitas")
+    @GetMapping("/totalReceitasPorPeriodo")
     public ResponseEntity<BigDecimal> calcularTotalReceitasPorPeriodo(@RequestParam("dataInicial")String dataInicial, @RequestParam("dataFinal") String dataFinal){
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");

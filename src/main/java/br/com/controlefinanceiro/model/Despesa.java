@@ -28,6 +28,16 @@ public class Despesa {
     @Enumerated(EnumType.STRING)
     private CategoriaDespesa categoriaDespesa;
 
+    public Despesa() {
+    }
+
+    public Despesa(String descricao, BigDecimal valor, LocalDate data, CategoriaDespesa categoriaDespesa) {
+        this.descricao = descricao;
+        this.valor = valor;
+        this.data = data;
+        this.categoriaDespesa = categoriaDespesa;
+    }
+
     public Despesa(Long id, String descricao, BigDecimal valor, LocalDate data, CategoriaDespesa categoriaDespesa) {
         this.id = id;
         this.descricao = descricao;
